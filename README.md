@@ -2,7 +2,7 @@ FLOW Testnet Address:
 0x8442e312e8a9534e
 
 
-**Quest Chapter 1 Day 1**
+Quest Chapter 1 Day 1
   
   1. A blockchain is a decentralized digital public ledger. Broken down, that means the blockchain is a record of all transactions made on a specific network, no single entity has control over the blockchain, the blockchain exists solely in the digital realm, and anyone can view, make changes to, or store data on the blockchain at any time (it's an open and transparent network).
   
@@ -12,6 +12,13 @@ FLOW Testnet Address:
   
 
 **Quest Chapter 1 Day 2**
+
+  1. The five Cadence Programing Language Pillars are Safety and Security, Clarity, Approachability, Developer Experience, and Resource Oriented Programming.
+  
+  2. Safety and Secirity could be useful because the more secure a Smart Contract is, 
+     Clarity could be useful
+     Approachability could be useful
+     Developer Experience could be useful
 
 **Quest Chapter 2 Day 1**
 
