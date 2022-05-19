@@ -48,7 +48,7 @@
 
 **1. Explain why we wouldn't call changeGreeting in a script.**
 
-
+You can't call changeGreeting in a script because the script tab is only for reading the contract, not for changing the contract. Calling functions that change the code in the contract are done in the transactions tab.
 
 **2. What does the AuthAccount mean in the prepare phase of the transaction?**
 
