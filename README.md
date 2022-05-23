@@ -10,11 +10,11 @@
   
   **2. Explain what a Smart Contract is.**
 
-  A Smart Contract is a program, or "rulebook," that a developer makes on a blockchain so that users can interact with it. 
+  A Smart Contract is a program (kind of like a middleman), or "rulebook," that a developer makes on a blockchain so that users can interact with/do certain things on the blockchain. 
 
   **3. Explain the difference between a script and a transaction.**
 
-  A transaction changes data on a blockchain and costs money, whereas scripts view data on a blockchain and are free. 
+  A transaction changes/modifies data on a blockchain and costs money (gas), whereas scripts view/read data from a blockchain and are free. 
   
 
 ## Quest Chapter 1 Day 2 
