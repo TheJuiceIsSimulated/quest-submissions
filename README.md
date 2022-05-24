@@ -16,6 +16,8 @@
 
   A transaction modifies data on a blockchain and costs money (gas), whereas scripts read data from a blockchain and are free. 
   
+  
+  
 
 ## Quest Chapter 1 Day 2 ✅
 
@@ -32,15 +34,15 @@
   Approachability and Developer Experience are useful on Cadence because since Cadence is very easy to read in comparison to other programming languages, it's a great onboarding programming language for people to get into the Web3 space as developers. Cadence also offers approachability in that it offers a good coding environment for learning. (But LOL PlayGround reeeally needs to be fixed ASAP 😂)
 
 
-## Quest Chapter 2 Day 1
+## Quest Chapter 2 Day 1 ✅
 
 **1. Deploy a contract to account 0x03 called "JacobTucker". Inside that contract, declare a constant variable named is, and make it have type String. Initialize it to "the best" when your contract gets deployed.**
 
-
+![image](https://user-images.githubusercontent.com/104703860/170118126-f9f99f99-76da-4254-a318-651a7700d064.png)
 
 **2. Check that your variable is actually equals "the best" by executing a script to read that variable. Include a screenshot of the output.** 
 
-
+![image](https://user-images.githubusercontent.com/104703860/170118192-7f44532e-965c-426d-b919-35c691d40f32.png)
 
 
 
@@ -73,8 +75,6 @@ Add a script that reads myNumber from the contract**
 
 
 
-
-
 ## Quest Chapter 2 Day 3
 
 1. In a script, initialize an array (that has length == 3) of your favourite people, represented as Strings, and log it.
@@ -94,6 +94,8 @@ How to fix it
 ![image](https://user-images.githubusercontent.com/104703860/169172973-6b7551c6-9d9b-4616-a3e9-0a5f01c16b55.png)
 
 
+
+
 ## Quest Chapter 2 Day 4
 
 1. Deploy a new contract that has a Struct of your choosing inside of it (must be different than Profile).
@@ -105,6 +107,8 @@ How to fix it
 4. Add a transaction to call that function in step 3.
 
 5. Add a script to read the Struct you defined.
+
+
 
 
 ## Quest Chapter 3 Day 1
@@ -139,9 +143,14 @@ pub contract Test {
     }
 }
 
+
+
+
 ## Quest Chapter 3 Day 2
 
 1. Write your own smart contract that contains two state variables: an array of resources, and a dictionary of resources. Add functions to remove and add to each of them. They must be different from the examples above.
+
+
 
 
 ## Quest Chapter 3 Day 3
@@ -151,6 +160,8 @@ pub contract Test {
 2. Create a script that reads information from that resource using the reference from the function you defined in part 1.
 
 3. Explain, in your own words, why references can be useful in Cadence.
+
+
 
 
 ## Quest Chapter 3 Day 4
@@ -190,6 +201,8 @@ pub contract Stuff {
       log(newGreeting)
     }
 }
+
+
 
 
 ## Quest Chapter 3 Day 5
@@ -277,6 +290,8 @@ pub fun main() {
 }
 
 
+
+
 ## Quest Chapter 4 Day 1
 
 1. Explain what lives inside of an account.
@@ -296,6 +311,8 @@ pub fun main() {
   ii.A transaction that first saves the resource to account storage, then borrows a reference to it, and logs a field inside the resource.
 
 
+
+
 ## Quest Chapter 4 Day 2
 
 1. What does .link() do?
@@ -311,6 +328,8 @@ pub fun main() {
   iii. Run the script and access something you CAN read from. Return it from the script.
 
 
+
+
 ## Quest Chapter 4 Day 3
 
 1. Why did we add a Collection to this contract? List the two main reasons.
@@ -322,6 +341,8 @@ pub fun main() {
   Idea #1: Do we really want everyone to be able to mint an NFT? 🤔.
 
   Idea #2: If we want to read information about our NFTs inside our Collection, right now we have to take it out of the Collection to do so. Is this good?
+
+
 
 
 ## Quest Chapter 4 Day 4
@@ -410,10 +431,16 @@ pub contract CryptoPoops {
   }
 }
 
+
+
 ## Quest Chapter 5 Day 1
 
 
+
+
 ## Quest Chapter 5 Day 2
+
+
 
 
 ## Quest Chapter 5 Day 3
