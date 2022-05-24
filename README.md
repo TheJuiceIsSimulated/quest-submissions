@@ -49,7 +49,7 @@
 
 ## Quest Chapter 2 Day 2
 
-**1. Explain why we wouldn't call changeGreeting in a script.**✅
+**1. Explain why we wouldn't call changeGreeting in a script.** ✅
 
 You can't call changeGreeting in a script because the script tab is only for reading the contract, not for modifying the contract. Calling functions (making the function run) that modify the code in the contract are done in the transactions tab.
 
@@ -60,7 +60,6 @@ In the prepare phase of the transaction, AuthAccount means
 **3. What is the difference between the prepare phase and the execute phase in the transaction?**
 
 The prepare phase of the transaction 
-
 
 **4. This is the hardest quest so far, so if it takes you some time, do not worry! I can help you in the Discord if you have questions.**
 
