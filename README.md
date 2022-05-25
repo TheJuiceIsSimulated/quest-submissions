@@ -84,11 +84,11 @@ Add a script that reads myNumber from the contract**
 
 **4. Using this picture below, explain...**
 
-  **- What the error message means**
+  **◦ What the error message means**
 
-  **- Why we're getting this error**
+  **◦ Why we're getting this error**
 
-  **- How to fix it**
+  **◦ How to fix it**
 
 ![image](https://user-images.githubusercontent.com/104703860/169172973-6b7551c6-9d9b-4616-a3e9-0a5f01c16b55.png)
 
@@ -338,9 +338,9 @@ pub fun main() {
 
 **3. Brainstorm some extra things we may want to add to this contract. Think about what might be problematic with this contract and how we could fix it.**
 
-  **- Idea #1: Do we really want everyone to be able to mint an NFT? 🤔.**
-
-  **- Idea #2: If we want to read information about our NFTs inside our Collection, right now we have to take it out of the Collection to do so. Is this good?**
+  **◦ Idea #1: Do we really want everyone to be able to mint an NFT? 🤔.**
+  
+  **◦ Idea #2: If we want to read information about our NFTs inside our Collection, right now we have to take it out of the Collection to do so. Is this good?**
 
 
 
