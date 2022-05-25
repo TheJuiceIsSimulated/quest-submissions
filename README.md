@@ -36,11 +36,11 @@
 
 ## Quest Chapter 2 Day 1 ✅
 
-**1. Deploy a contract to account 0x03 called "JacobTucker". Inside that contract, declare a constant variable named is, and make it have type String. Initialize it to "the best" when your contract gets deployed.**
+**1. Deploy a contract to account `0x03` called "JacobTucker". Inside that contract, declare a constant variable named `is`, and make it have type `String`. Initialize it to "the best" when your contract gets deployed.**
 
 ![image](https://user-images.githubusercontent.com/104703860/170118126-f9f99f99-76da-4254-a318-651a7700d064.png)
 
-**2. Check that your variable is actually equals "the best" by executing a script to read that variable. Include a screenshot of the output.** 
+**2. Check that your variable `is` actually equals "the best" by executing a script to read that variable. Include a screenshot of the output.** 
 
 ![image](https://user-images.githubusercontent.com/104703860/170118192-7f44532e-965c-426d-b919-35c691d40f32.png)
 
@@ -49,38 +49,39 @@
 
 ## Quest Chapter 2 Day 2
 
-**1. Explain why we wouldn't call changeGreeting in a script.** ✅
+**1. Explain why we wouldn't call `changeGreeting` in a script.** ✅
 
-You can't call changeGreeting in a script because the script tab is only for reading the contract, not for modifying the contract. Calling functions (making the function run) that modify the code in the contract are done in the transactions tab.
+You can't call `changeGreeting` in a script because the script tab is only for reading the contract, not for modifying the contract. Calling functions (making the function run) that modify the code in the contract are done in the transactions tab.
 
-**2. What does the AuthAccount mean in the prepare phase of the transaction?**
+**2. What does the `AuthAccount` mean in the `prepare` phase of the transaction?**
 
 In the prepare phase of the transaction, AuthAccount means
 
-**3. What is the difference between the prepare phase and the execute phase in the transaction?**
+**3. What is the difference between the `prepare` phase and the `execute` phase in the transaction?**
 
 The prepare phase of the transaction 
 
 **4. This is the hardest quest so far, so if it takes you some time, do not worry! I can help you in the Discord if you have questions.**
 
-**Add two new things inside your contract:**
+- Add two new things inside your contract:
 
-**A variable named myNumber that has type Int (set it to 0 when the contract is deployed)
-A function named updateMyNumber that takes in a new number named newNumber as a parameter that has type Int and updates myNumber to be newNumber
-Add a script that reads myNumber from the contract**
+  - A variable named `myNumber` that has type `Int` (set it to 0 when the contract is deployed)
+  - A function named `updateMyNumber` that takes in a new number named `newNumber` as a parameter that has type `Int` and updates `myNumber` to be `newNumber`
+  
+- Add a script that reads `myNumber` from the contract
 
-**Add a transaction that takes in a parameter named myNewNumber and passes it into the updateMyNumber function. Verify that your number changed by running the script again.**
+- Add a transaction that takes in a parameter named `myNewNumber` and passes it into the `updateMyNumber` function. Verify that your number changed by running the script again.
 
 
 
 
 ## Quest Chapter 2 Day 3
 
-**1. In a script, initialize an array (that has length == 3) of your favourite people, represented as Strings, and log it.**
+**1. In a script, initialize an array (that has length == 3) of your favourite people, represented as `String`s, and `log` it.**
 
-**2. In a script, initialize a dictionary that maps the Strings Facebook, Instagram, Twitter, YouTube, Reddit, and LinkedIn to a UInt64 that represents the order in which you use them from most to least. For example, YouTube --> 1, Reddit --> 2, etc. If you've never used one before, map it to 0!**
+**2. In a script, initialize a dictionary that maps the `String`s Facebook, Instagram, Twitter, YouTube, Reddit, and LinkedIn to a `UInt64` that represents the order in which you use them from most to least. For example, YouTube --> 1, Reddit --> 2, etc. If you've never used one before, map it to 0!**
 
-**3. Explain what the force unwrap operator ! does, with an example different from the one I showed you (you can just change the type).**
+**3. Explain what the force unwrap operator `!` does, with an example different from the one I showed you (you can just change the type).**
 
 **4. Using this picture below, explain...**
 
@@ -97,7 +98,7 @@ Add a script that reads myNumber from the contract**
 
 ## Quest Chapter 2 Day 4
 
-**1. Deploy a new contract that has a Struct of your choosing inside of it (must be different than Profile).**
+**1. Deploy a new contract that has a Struct of your choosing inside of it (must be different than `Profile`).**
 
 **2. Create a dictionary or array that contains the Struct you defined.**
 
@@ -122,12 +123,19 @@ Add a script that reads myNumber from the contract**
 
 **5. What is the type of the resource below?**
 
+```Cadence
+
 pub resource Jacob {
 
 }
+```
 
 **6. Let's play the "I Spy" game from when we were kids. I Spy 4 things wrong with this code. Please fix them.**
 pub contract Test {
+
+```Cadence
+
+  pub contract Test {
 
     // Hint: There's nothing wrong here ;)
     pub resource Jacob {
@@ -142,7 +150,7 @@ pub contract Test {
         return myJacob // there is 1 here
     }
 }
-
+```
 
 
 
@@ -172,6 +180,7 @@ pub contract Test {
 
 **3. How would we fix this code?**
 
+```Cadence
 pub contract Stuff {
 
     pub struct interface ITest {
@@ -201,14 +210,16 @@ pub contract Stuff {
       log(newGreeting)
     }
 }
+```
 
 
 
 
 ## Quest Chapter 3 Day 5
 
-**1. For today's quest, you will be looking at a contract and a script. You will be looking at 4 variables (a, b, c, d) and 3 functions (publicFunc, contractFunc, privateFunc) defined in SomeContract. In each AREA (1, 2, 3, and 4), I want you to do the following: for each variable (a, b, c, and d), tell me in which areas they can be read (read scope) and which areas they can be modified (write scope). For each function (publicFunc, contractFunc, and privateFunc), simply tell me where they can be called.**
+**1. For today's quest, you will be looking at a contract and a script. You will be looking at 4 variables (a, b, c, d) and 3 functions (publicFunc, contractFunc, privateFunc) defined in `SomeContract`. In each AREA (1, 2, 3, and 4), I want you to do the following: for each variable (a, b, c, and d), tell me in which areas they can be read (read scope) and which areas they can be modified (write scope). For each function (publicFunc, contractFunc, and privateFunc), simply tell me where they can be called.**
 
+```CADENCE
 access(all) contract SomeContract {
     pub var testStruct: SomeStruct
 
@@ -279,8 +290,11 @@ access(all) contract SomeContract {
         self.testStruct = SomeStruct()
     }
 }
+```
+
 This is a script that imports the contract above:
 
+```CADENCE
 import SomeContract from 0x01
 
 pub fun main() {
@@ -288,6 +302,7 @@ pub fun main() {
   /*** AREA 4 ***/
   /**************/
 }
+```
 
 
 
@@ -296,9 +311,9 @@ pub fun main() {
 
 **1. Explain what lives inside of an account.**
 
-**2. What is the difference between the /storage/, /public/, and /private/ paths?**
+**2. What is the difference between the  `/storage/`, `/public/`, and `/private/` paths?**
 
-**3. What does .save() do? What does .load() do? What does .borrow() do?**
+**3. What does `.save()` do? What does `.load()` do? What does .`borrow()` do?**
 
 **4. Explain why we couldn't save something to our account storage inside of a script.**
 
@@ -315,9 +330,9 @@ pub fun main() {
 
 ## Quest Chapter 4 Day 2
 
-**1. What does .link() do?**
+**1. What does `.link()` do?**
 
-**2. In your own words (no code), explain how we can use resource interfaces to only expose certain things to the /public/ path.**
+**2. In your own words (no code), explain how we can use resource interfaces to only expose certain things to the `/public/` path.**
 
 **3. Deploy a contract that contains a resource that implements a resource interface. Then, do the following:**
 
@@ -351,6 +366,7 @@ pub fun main() {
 
 **Take our NFT contract so far and add comments to every single resource or function explaining what it's doing in your own words. Something like this:**
 
+```CADENCE
 pub contract CryptoPoops {
   pub var totalSupply: UInt64
 
@@ -430,6 +446,8 @@ pub contract CryptoPoops {
     self.account.save(<- create Minter(), to: /storage/Minter)
   }
 }
+```
+
 
 
 
@@ -443,6 +461,7 @@ pub contract CryptoPoops {
 
 **4. For each of the functions below (numberOne, numberTwo, numberThree), follow the instructions.**
 
+```CADENCE
 pub contract Test {
 
   // TODO
@@ -489,6 +508,7 @@ pub contract Test {
   }
 
 }
+```
 
 
 
@@ -503,6 +523,7 @@ pub contract Test {
 
 The contract interface:
 
+```CADENCE
 pub contract interface ITest {
   pub var number: Int
   
@@ -523,8 +544,11 @@ pub contract interface ITest {
     pub var favouriteActivity: String
   }
 }
+```
+
 The implementing contract:
 
+```CADENCE
 pub contract Test {
   pub var number: Int
   
@@ -548,18 +572,20 @@ pub contract Test {
     self.number = 0
   }
 }
+```
 
 
 
 
 ## Quest Chapter 5 Day 3
 
-**1. What does "force casting" with as! do? Why is it useful in our Collection?**
+**1. What does "force casting" with `as!` do? Why is it useful in our Collection?**
 
-**2. What does auth do? When do we use it?**
+**2. What does `auth do?` When do we use it?**
 
 **3. This last quest will be your most difficult yet. Take this contract:**
 
+```CADENCE
 import NonFungibleToken from 0x02
 pub contract CryptoPoops: NonFungibleToken {
   pub var totalSupply: UInt64
@@ -639,6 +665,8 @@ pub contract CryptoPoops: NonFungibleToken {
     self.account.save(<- create Minter(), to: /storage/Minter)
   }
 }
-and add a function called borrowAuthNFT just like we did in the section called "The Problem" above. Then, find a way to make it publically accessible to other people so they can read our NFT's metadata. Then, run a script to display the NFTs metadata for a certain id.
+```
+
+and add a function called `borrowAuthNFT` just like we did in the section called "The Problem" above. Then, find a way to make it publically accessible to other people so they can read our NFT's metadata. Then, run a script to display the NFTs metadata for a certain `id`.
 
 You will have to write all the transactions to set up the accounts, mint the NFTs, and then the scripts to read the NFT's metadata. We have done most of this in the chapters up to this point, so you can look for help there :)
