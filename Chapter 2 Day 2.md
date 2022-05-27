@@ -19,7 +19,7 @@ The prepare phase (1st phase) of the transaction allows the smart contract ot ac
   - A variable named `myNumber` that has type `Int` (set it to 0 when the contract is deployed)
   - A function named `updateMyNumber` that takes in a new number named `newNumber` as a parameter that has type `Int` and updates `myNumber` to be `newNumber`
 
-![image](https://user-images.githubusercontent.com/104703860/170615918-fe5f45e5-2ee4-4652-a6bb-58b88ef491f4.png)
+![image](https://user-images.githubusercontent.com/104703860/170653422-9f7bde07-f03e-46f8-88d3-5db9d1868300.png)
 
 ```cadence
 pub contract HelloWorld {
@@ -38,7 +38,7 @@ pub contract HelloWorld {
   
 - Add a script that reads `myNumber` from the contract
 
-![image](https://user-images.githubusercontent.com/104703860/170615983-48dd2e0d-f6c4-4c19-b401-d69abaa35326.png)
+![script 1](https://user-images.githubusercontent.com/104703860/170653501-cfa062db-c072-4acf-8b27-f725391f7390.png)
 
 ```cadence
 import HelloWorld from 0x01
@@ -50,7 +50,7 @@ pub fun main (): Int {
 
 - Add a transaction that takes in a parameter named `myNewNumber` and passes it into the `updateMyNumber` function. Verify that your number changed by running the script again.
 
-![image](https://user-images.githubusercontent.com/104703860/170616076-de28d9a7-6634-4375-89f8-26971b02713c.png)
+![transaction ch2d2](https://user-images.githubusercontent.com/104703860/170653595-088d434a-796b-4020-9017-faf41dab8d61.png)
 
 ```cadence
 import HelloWorld from 0x01
@@ -65,4 +65,6 @@ transaction(myNewNumber: Int) {
 }
 ```
 
-![image](https://user-images.githubusercontent.com/104703860/170616112-b267dfa6-edfa-4ddb-9712-08cbb95fc246.png)
+![script 2](https://user-images.githubusercontent.com/104703860/170653696-200b4303-386f-4a38-a7e2-d30797e78a73.png)
+
+
