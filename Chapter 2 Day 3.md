@@ -2,7 +2,7 @@
 
 **1. In a script, initialize an array (that has length == 3) of your favourite people, represented as `String`s, and `log` it.**
 
-In the third line of code, I tried to do 'log(favoritePeople)' instead of 'return(favoritePeople)' but I got the error message "Missing return statement" in the Playground. The Playground didn't let me execute the code because of that, I don't know what I was doing wrong. 
+In the third line of code, I tried to do 'log(favoritePeople)' instead of 'return(favoritePeople)' but I got the error message "Missing return statement" in the Playground & couldn't execute the code. I don't know what I was doing wrong. 
 
 ```cadence
 pub fun main (): [String] {
