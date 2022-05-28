@@ -2,15 +2,23 @@
 
 **1. In a script, initialize an array (that has length == 3) of your favourite people, represented as `String`s, and `log` it.**
 
+In the third line of code, I tried to do 'log(favoritePeople)' instead of 'return(favoritePeople)' but I got the error message "Missing return statement" in the Playground. The Playground didn't let me execute the code because of that, I don't know what I was doing wrong. 
+
 ```cadence
 pub fun main (): [String] {
  var favoritePeople: [String] = ["myReflection", "myMother", "myCat"]
  return(favoritePeople)
-
 }
 ```
 
 **2. In a script, initialize a dictionary that maps the `String`s Facebook, Instagram, Twitter, YouTube, Reddit, and LinkedIn to a `UInt64` that represents the order in which you use them from most to least. For example, YouTube --> 1, Reddit --> 2, etc. If you've never used one before, map it to 0!**
+
+```cadence
+pub fun main (): {String: UInt64} {
+ var socialMedia: {String: UInt64} = {"Facebook": 0, "YouTube": 1, "Twitter": 2, "Reddit": 3, "LinkedIn": 4, "Instagram": 5}
+ return(socialMedia)
+}
+```
 
 **3. Explain what the force unwrap operator `!` does, with an example different from the one I showed you (you can just change the type).**
 
