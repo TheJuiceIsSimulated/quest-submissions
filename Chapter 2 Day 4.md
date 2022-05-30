@@ -1,4 +1,4 @@
-## Quest Chapter 2 Day 4
+## Quest Chapter 2 Day 4 ✅
 
 **1. Deploy a new contract that has a Struct of your choosing inside of it (must be different than `Profile`).**
 
