@@ -4,9 +4,9 @@
 
 Structs are different from resources because:
 
-- Structs can be lost (or overwritten), but recources cannot
-- Structs can be created at any point in time, but recources cannot
-- Structs can be copied, but recources cannot
+- Structs can be lost (or overwritten), but resources cannot
+- Structs can be created at any point in time, but resources cannot
+- Structs can be copied, but resources cannot
 
 Basically, recources are much more difficult than structs to deal with.
 
