@@ -1,4 +1,4 @@
-## Quest Chapter 3 Day 4
+## Quest Chapter 3 Day 4 🆗
 
 **1. Explain, in your own words, the 2 things resource interfaces can be used for (we went over both in today's content)**
 
@@ -93,7 +93,10 @@ pub contract Stuff {
       pub var favouriteFruit: String
       pub fun changeGreeting(newGreeting: String): String 
     }
-
+    
+    // ERROR:
+    // `structure Stuff.Test does not conform 
+    // to structure interface Stuff.ITest`
     pub struct Test: ITest {
       pub var greeting: String
       init() {
@@ -113,3 +116,7 @@ pub contract Stuff {
     }
 }
 ```
+
+I'm still getting the first error message, I thought I fixed it, but now I don't know what to do.
+
+![image](https://user-images.githubusercontent.com/104703860/172021199-1bd0bb2e-ce4d-48a0-98de-dccdb388c21a.png)
