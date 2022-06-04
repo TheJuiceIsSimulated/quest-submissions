@@ -1,4 +1,4 @@
-## Quest Chapter 3 Day 3
+## Quest Chapter 3 Day 3 🆗
 
 **1. Define your own contract that stores a dictionary of resources. Add a function to get a reference to one of the resources in the dictionary.**
 
