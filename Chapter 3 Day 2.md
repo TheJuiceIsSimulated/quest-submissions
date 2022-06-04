@@ -47,6 +47,6 @@ pub contract Cars {
 }
 ```
 
-I got the following error messages and don't know how to fix them - I tried moving some lines of code around already, but it just made the error messages worse. 
+I got the following error messages and don't know how to fix them - I tried moving some lines of code around already, but it just made the error messages worse. I definitely need some help here.
 
 ![image](https://user-images.githubusercontent.com/104703860/171969044-9e92ff69-0389-4b4c-9dd5-712b0c8f901e.png)
