@@ -86,3 +86,38 @@ pub fun main() {
   /**************/
 }
 ```
+
+AREA 1
+
+Read Scope:
+
+Write Scope:
+
+x function can be called here
+
+
+AREA 2:
+
+Read Scope:
+
+Write Scope:
+
+x function can be called here
+
+
+AREA 3:
+
+Read Scope:
+
+Write Scope:
+
+x function can be called here
+
+
+AREA 4:
+
+Read Scope:
+
+Write Scope:
+
+x function can be called here
