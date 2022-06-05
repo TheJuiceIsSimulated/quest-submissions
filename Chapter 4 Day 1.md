@@ -88,3 +88,19 @@ transaction() {
   ```
 
   **ii.A transaction that first saves the resource to account storage, then borrows a reference to it, and logs a field inside the resource.**
+  
+  ```cadence
+import SportsCars from 0x01
+transaction() {
+  prepare(signer: AuthAccount) {
+    let testDrive = signer.borrow<&SportsCars.Hardtops>(from: /storage/MyTestDrive)
+                        ?? panic("A `@SportsCars.Hardtops` resource does not live here.")
+    log(testDrive.auto)
+    
+  }
+
+  execute {
+
+  }
+}
+  ```
