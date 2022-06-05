@@ -16,9 +16,13 @@ There are two things that live inside accounts on Flow:
 
 The difference between these three paths is that each path allows a developer to get to certain data. The `/storage/` path can only be accessed by the account owner (otherwise, someone malicious could steal all of your data) and ALL of the account's data lives here. Data in the `/public/` path is available to everyone. Data in the `/private/` path is available to the account owner and people who the account owner gives access to. 
 
-**3. What does `.save()` do? What does `.load()` do? What does .`borrow()` do?**
+**3. What does `.save()` do? What does `.load()` do? What does `.borrow()` do?**
 
-`.save()` 
+`.save()` saves something to the `/storage/` path. 
+
+`.load()` takes something out of `/storage/`. 
+
+`.borrow()` lets us only look at something in `/storage/`. 
 
 **4. Explain why we couldn't save something to our account storage inside of a script.**
 
@@ -48,5 +52,39 @@ pub contract SportsCars {
 ```
 
   **i. A transaction that first saves the resource to account storage, then loads it out of account storage, logs a field inside the resource, and destroys it.**
+  
+  I didn't know how to combine the two into one transaction, I tried different ways of combining but kept getting errors.
+  
+  ```cadence
+import SportsCars from 0x01
+transaction() {
+   prepare(signer: AuthAccount) {
+     let testDrive <- SportsCars.createHardtops()
+     signer.save(<- testDrive, to: /storage/MyTestDrive)
+    
+   }
+    
+   execute {
+    
+   }
+}
+  ```
+  
+  ```cadence
+import SportsCars from 0x01
+transaction() {
+  prepare(signer: AuthAccount) {
+    let testDrive <- signer.load<@SportsCars.Hardtops>(from: /storage/MyTestDrive)
+                        ?? panic("A `@SportsCars.Hardtops` resource does not live here.")
+    log(testDrive.auto)
+    
+    destroy testDrive
+  }
+
+  execute {
+
+  }
+}
+  ```
 
   **ii.A transaction that first saves the resource to account storage, then borrows a reference to it, and logs a field inside the resource.**
