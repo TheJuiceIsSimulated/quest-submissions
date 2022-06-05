@@ -1,4 +1,4 @@
-## Quest Chapter 4 Day 1
+## Quest Chapter 4 Day 1 🆗
 
 **1. Explain what lives inside of an account.**
 
@@ -34,6 +34,8 @@ You couldn't save something to my account because only I, the account owner, can
 
 **6. Define a contract that returns a resource that has at least 1 field in it. Then, write 2 transactions:**
 
+![image](https://user-images.githubusercontent.com/104703860/172037279-efb53508-17df-4e63-ac39-2b8b22237df6.png)
+
 ```cadence
 pub contract SportsCars {
 
@@ -55,6 +57,8 @@ pub contract SportsCars {
   
   I didn't know how to combine the two into one transaction, I tried different ways of combining but kept getting errors.
   
+  ![image](https://user-images.githubusercontent.com/104703860/172037286-98915095-bb27-4f72-82da-6f86c9cd411b.png)
+  
   ```cadence
 import SportsCars from 0x01
 transaction() {
@@ -70,37 +74,43 @@ transaction() {
 }
   ```
   
+  ![image](https://user-images.githubusercontent.com/104703860/172037301-85eb6630-0a4e-4c78-b394-d3b8c9fd93fe.png)
+  
   ```cadence
 import SportsCars from 0x01
 transaction() {
-  prepare(signer: AuthAccount) {
-    let testDrive <- signer.load<@SportsCars.Hardtops>(from: /storage/MyTestDrive)
-                        ?? panic("A `@SportsCars.Hardtops` resource does not live here.")
-    log(testDrive.auto)
+    prepare(signer: AuthAccount) {
+        let testDrive <- signer.load<@SportsCars.Hardtops>(from: /storage/MyTestDrive)
+                      ?? panic("A `@SportsCars.Hardtops` resource does not live here.")
+        log(testDrive.auto)
     
-    destroy testDrive
-  }
+        destroy testDrive
+    }
 
-  execute {
+    execute {
 
-  }
+    }
 }
   ```
 
   **ii.A transaction that first saves the resource to account storage, then borrows a reference to it, and logs a field inside the resource.**
   
+  ![image](https://user-images.githubusercontent.com/104703860/172037311-f0255df0-c249-4bcb-b674-a28c8519d054.png)
+  
   ```cadence
 import SportsCars from 0x01
 transaction() {
-  prepare(signer: AuthAccount) {
-    let testDrive = signer.borrow<&SportsCars.Hardtops>(from: /storage/MyTestDrive)
-                        ?? panic("A `@SportsCars.Hardtops` resource does not live here.")
+    prepare(signer: AuthAccount) {
+        let testDrive = signer.borrow<&SportsCars.Hardtops>(from: /storage/MyTestDrive)
+                      ?? panic("A `@SportsCars.Hardtops` resource does not live here.")
     log(testDrive.auto)
-    
-  }
+  
+    }
 
-  execute {
+    execute {
 
-  }
+    }
 }
   ```
+  
+ I don't know why the program is panicking and not logging the value here, all of the other transactions worked fine.
