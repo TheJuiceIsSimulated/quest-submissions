@@ -18,11 +18,15 @@ The difference between these three paths is that each path allows a developer to
 
 **3. What does `.save()` do? What does `.load()` do? What does .`borrow()` do?**
 
+`.save()` 
+
 **4. Explain why we couldn't save something to our account storage inside of a script.**
 
-We couldn't save something to account storage inside of a script because 
+We couldn't save something to account storage inside of a script because in order to access `/storage/`, we need to use our `AuthAccount` type. We can only use our `AUthAccount` type by signing a transaction in the `prepare` phase. 
 
 **5. Explain why I couldn't save something to your account.**
+
+You couldn't save something to my account because only I, the account owner, can access my own `/storage/` path. The only way you would be able to save something to my account is if I give you permission through the `/private/` path. 
 
 **6. Define a contract that returns a resource that has at least 1 field in it. Then, write 2 transactions:**
 
@@ -36,7 +40,7 @@ pub contract SportsCars {
   }
  }
  
- pub fun create Hardtops(): @Hardtops {
+ pub fun createHardtops(): @Hardtops {
   return <- create Hardtops()
  }
  
