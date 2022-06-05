@@ -2,7 +2,14 @@
 
 **1. Why did we add a Collection to this contract? List the two main reasons.**
 
+We added a Collection to this contract because
+
+- 1.
+- 2. 
+
 **2. What do you have to do if you have resources "nested" inside of another resource? ("Nested resources")**
+
+If you have resources "nested" inside of another resource, 
 
 **3. Brainstorm some extra things we may want to add to this contract. Think about what might be problematic with this contract and how we could fix it.**
 
