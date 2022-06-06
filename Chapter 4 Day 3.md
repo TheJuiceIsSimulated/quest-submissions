@@ -4,7 +4,7 @@
 
 We added a Collection to this contract because
 
-- 1. If we wanted to have multiple NFTs, we would have to remember each individual storage path we gave to each NFT, which is vey inefficient and annoying. 
+- 1. If we wanted to have multiple NFTs, we would have to remember each individual storage path we gave to each NFT, which is very inefficient and annoying. 
 - 2. No one can give us any NFTs because only the account owner can store an NFT in `/storage/` directly, so no one can mint us an NFT.
 
 **2. What do you have to do if you have resources "nested" inside of another resource? ("Nested resources")**
