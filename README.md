@@ -790,34 +790,132 @@ transaction() {
 
 
 
-## Quest Chapter 4 Day 2
+## Quest Chapter 4 Day 2 🆗
 
 **1. What does `.link()` do?**
 
+`.link()` allows a developer to "link" resources in the `/storage/` path to the `/public/` or `/private/` paths so the resource can be publically accessible or viewable in the case of `/public/` OR accessible/viewable to whoever the developer wants to give access to `/storage/` in the case of `/private/`.
+
 **2. In your own words (no code), explain how we can use resource interfaces to only expose certain things to the `/public/` path.**
+
+We can use resource interfaces to only expose certain things to the `/public/` path by only exposing the fields we want to expose to the pubic and then by linking that resource interface to the `/public/` path using `.link()`. That will restrict that reference to only use the resource interface that we defined and make it secure from any hackers that want to change our info. 
 
 **3. Deploy a contract that contains a resource that implements a resource interface. Then, do the following:**
 
+![image](https://user-images.githubusercontent.com/104703860/172054744-2f73347d-5e1a-444e-8b3a-2402f05c01af.png)
+
+```cadence
+pub contract SportsCars {
+
+    pub resource interface IDrive {
+        pub var auto: String
+    }
+
+    pub resource Drive: IDrive {
+        pub var auto: String
+
+        pub fun changeAuto(newAuto: String) {
+            self.auto = newAuto
+        }
+
+        init () {
+            self.auto = "Lotus Exige"
+        }
+    }
+
+    pub fun createDrive(): @Drive {
+        return <- create Drive()
+    }
+
+}
+```
+
   **i. In a transaction, save the resource to storage and link it to the public with the restrictive interface.**
+  
+  ![image](https://user-images.githubusercontent.com/104703860/172054763-eaf8d6ca-a4cd-4dd9-9891-27ec1ca5e76a.png)
+  
+  ```cadence
+import SportsCars from 0x01
+transaction () {
+  prepare(signer: AuthAccount) {
+
+    signer.save(<- SportsCars.createDrive(), to: /storage/MyScenicDriveResource)
+  
+    signer.link<&SportsCars.Drive{SportsCars.IDrive}>(/public/MyScenicDriveResource, target: /storage/MyScenicDriveResource)
+  }
+  
+  execute {
+
+  }
+}
+  ```
 
   **ii. Run a script that tries to access a non-exposed field in the resource interface, and see the error pop up.**
+  
+  I ran a transaction instead of a script here, I think there's a typo.
+  
+  ![image](https://user-images.githubusercontent.com/104703860/172054773-528e52e4-6d3f-4b79-81a1-ec99e1731424.png)
+  
+  ```cadence
+  import SportsCars from 0x01
+transaction(address: Address) {
+    prepare(signer: AuthAccount) {
+
+    }
+
+    execute {
+        let publicCapability: Capability<&SportsCars.Drive> = 
+            getAccount(address).getCapability<&SportsCars.Drive>(/public/MyScenicDriveResource)
+
+        let driveResource: &SportsCars.Drive = publicCapability.borrow() ?? panic("The capability does not exist or you did not specify the right type when you got the capability.")
+
+        driveResource.changeAuto(newAuto: "Ferrari Enzo")
+    }
+}
+  ```
 
   **iii. Run the script and access something you CAN read from. Return it from the script.**
+  
+  ![image](https://user-images.githubusercontent.com/104703860/172054787-3373992d-166e-4266-88f2-c5393d631c61.png)
+  
+```cadence
+import SportsCars from 0x01
+pub fun main(address: Address): String {
+  let publicCapability: Capability<&SportsCars.Drive{SportsCars.IDrive}> =
+      getAccount(address).getCapability<&SportsCars.Drive{SportsCars.IDrive}>(/public/MyScenicDriveResource)
+
+  let driveResource: &SportsCars.Drive{SportsCars.IDrive} = publicCapability.borrow() ?? panic("The capability does not exist or you did not specify the right type when you got the capability.")
+
+  return driveResource.auto 
+}
+```
 
 
 
 
-## Quest Chapter 4 Day 3
+
+## Quest Chapter 4 Day 3 🆗
 
 **1. Why did we add a Collection to this contract? List the two main reasons.**
 
+We added a Collection to this contract because
+
+- 1. If we wanted to have multiple NFTs, we would have to remember each individual storage path we gave to each NFT, which is vey inefficient and annoying. 
+- 2. No one can give us any NFTs because only the account owner can store an NFT in `/storage/` directly, so no one can mint us an NFT.
+
 **2. What do you have to do if you have resources "nested" inside of another resource? ("Nested resources")**
+
+If you have resources "nested" inside of another resource, you must declare a `destroy` function that manually destroys the "nested" resources with the `destroy` keyword.
 
 **3. Brainstorm some extra things we may want to add to this contract. Think about what might be problematic with this contract and how we could fix it.**
 
   **◦ Idea #1: Do we really want everyone to be able to mint an NFT? 🤔.**
   
   **◦ Idea #2: If we want to read information about our NFTs inside our Collection, right now we have to take it out of the Collection to do so. Is this good?**
+
+No, we don't want everyone to be able to mint an NFT. Sometimes, we only want specific addresses to be able to mint, like in a White List/Allow List scenario. So, we need to add a resource that mints NFTs. In that way, only an address that owns that resource has to ability to mint an NFT. 
+
+Taking our NFTs out of our Collection in order to read something about it isn't good because we only want to have one "container" for all our NFTs to hang out in for ease of access and functionality. In order to read our NFTs without taking them out of the collection, we need to add a `.borrow()` function to our NFT Contract because the `.borrow()` function allows us to look at data in `/storage/`.
 
 
 
