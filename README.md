@@ -666,6 +666,41 @@ pub fun main() {
 }
 ```
 
+AREA 1
+
+Read Scope: a, b, c, d
+
+Write Scope: a, b, c, d
+
+publicFunc, contractFunc, privateFunc can be called here
+
+
+AREA 2:
+
+Read Scope: a, b, c
+
+Write Scope: a, b, c
+
+publicFunc, contractFunc can be called here
+
+
+AREA 3:
+
+Read Scope: a, b, c
+
+Write Scope: a, b, c
+
+publicFunc, contractFunc can be called here
+
+
+AREA 4:
+
+Read Scope: a, b
+
+Write Scope: a
+
+publicFunc can be called here
+
 
 
 
