@@ -89,35 +89,35 @@ pub fun main() {
 
 AREA 1
 
-Read Scope:
+Read Scope: a, b, c, d
 
-Write Scope:
+Write Scope: a, b, c, d
 
-x function can be called here
+publicFunc, contractFunc, privateFunc can be called here
 
 
 AREA 2:
 
-Read Scope:
+Read Scope: a, b, c
 
-Write Scope:
+Write Scope: a, b, c
 
-x function can be called here
+publicFunc, contractFunc can be called here
 
 
 AREA 3:
 
-Read Scope:
+Read Scope: a, b, c
 
-Write Scope:
+Write Scope: a, b, c
 
-x function can be called here
+publicFunc, contractFunc can be called here
 
 
 AREA 4:
 
-Read Scope:
+Read Scope: a, b
 
-Write Scope:
+Write Scope: a
 
-x function can be called here
+publicFunc can be called here
