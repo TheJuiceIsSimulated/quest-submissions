@@ -2,6 +2,8 @@
 
 **1. Explain why standards can be beneficial to the Flow ecosystem.**
 
+Standards can be beneficial to the FLOW ecosystem because 
+
 **2. What is YOUR favourite food?**
 
 It's a tie between a good corned beef sandwich (2nd Ave Deli is THE place to go) and nigiri/sashimi sushi.
