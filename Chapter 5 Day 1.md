@@ -1,4 +1,4 @@
-## Quest Chapter 5 Day 1
+## Quest Chapter 5 Day 1 🆗
 
 **1. Describe what an event is, and why it might be useful to a client.**
 
@@ -37,6 +37,12 @@ pub contract YouMintedAnNFT {
     }
     log(money)
   }
+  
+  pub fun updateMoney() {
+    post {
+      before(self.number) ==self.number - 1
+    }
+      self.number = self.number + 1
   
   pub event MintedNFT(id: UInt64)
   
@@ -77,7 +83,7 @@ pub contract Test {
     post {
       result == "Jacob Tucker"
     }
-    return name.concat(" Tucker")
+    return name.concat("Tucker")
   }
 
   pub resource TestResource {
@@ -102,3 +108,9 @@ pub contract Test {
 
 }
 ```
+
+numberOne: No, the function will not log the name "Jacob"
+
+numberTwo: Yes, the function will return a value.
+
+numberThree: Yes, the function will log the updates number. After it's run, the value of `self.number` will be 2.
