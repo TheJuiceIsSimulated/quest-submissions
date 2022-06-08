@@ -121,10 +121,15 @@ pub contract CryptoPoops: NonFungibleToken {
       self.name = _name
       self.favouriteFood = _favouriteFood
       self.luckyNumber = _luckyNumber
+      
+      CryptoPoops.totalSupply = CryptoPoops.totalSplly +1
     }
   }
 
-  pub resource Collection: NonFungibleToken.Provider, NonFungibleToken.Receiver, NonFungibleToken.CollectionPublic {
+  pub resource interface ICollection {
+    pub fun borrow CryptoPoopsNFT(id: UInt64): &NFT
+
+  pub resource Collection: NonFungibleToken.Provider, NonFungibleToken.Receiver, NonFungibleToken.CollectionPublic, ICollection {
     pub var ownedNFTs: @{UInt64: NonFungibleToken.NFT}
 
     pub fun withdraw(withdrawID: UInt64): @NonFungibleToken.NFT {
@@ -144,9 +149,12 @@ pub contract CryptoPoops: NonFungibleToken {
       return self.ownedNFTs.keys
     }
     
-      pub fun borrowAuthNFT(id: UInt64): &NFT {
+     pub fun borrowNFT(id: UInt64): &NonFungibleToken.NFT {
+      return &self.ownedNFTS[id] as &NonFungibleToken.NFT
+    
+     pub fun borrowAuthNFT(id: UInt64): &NFT {
       let ref = &self.ownedNFTs[id] as auth &NonFungibleToken.NFT
-      return !ref as &NFT
+      return ref as! &NFT
     }
 
     init() {
@@ -179,5 +187,19 @@ pub contract CryptoPoops: NonFungibleToken {
     emit ContractInitialized()
     self.account.save(<- create Minter(), to: /storage/Minter)
   }
+}
+```
+
+Script to Read NFT's Metadata:
+
+```cadence
+import CryptoPoops from 0x01
+import NonFungibleToken from 0x02
+
+pub fun main(address: Address): [UInt64] {
+  let publicCollection = getAccount(address).getCabability(/public/MyCollection)
+                            .borrow<&CryptoPoops.Collection(NonFungibleToken.CollectionPublic)>()
+                            ?? panic("This Collection isn't publically available through a link.")
+  return publicCollection.getIDs()
 }
 ```
