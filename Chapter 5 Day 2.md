@@ -4,6 +4,8 @@
 
 **2. What is YOUR favourite food?**
 
+It's a tie between a good corned beef sandwich (2nd Ave Deli is THE place to go) and nigiri/sashimi sushi.
+
 **3. Please fix this code (Hint: There are two things wrong):**
 
 The contract interface:
