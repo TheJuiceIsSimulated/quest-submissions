@@ -94,7 +94,7 @@ pub contract interface ITest {
 The implementing contract:
 
 ```CADENCE
-pub contract Test:  {
+pub contract Test  {
   pub var number: Int
   
   pub fun updateNumber(newNumber: Int) {
