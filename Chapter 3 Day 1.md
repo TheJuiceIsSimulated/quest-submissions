@@ -24,7 +24,9 @@ A resource CANNOT be created in a script or transaction because they can only be
 
 **5. What is the type of the resource below?**
 
-This is a `string` type resource. 
+OLD ANSWER: This is a `string` type resource. 
+
+NEW ANSWER: @Jacob, which is the declared name of the resource Jacob.
 
 ```Cadence
 
