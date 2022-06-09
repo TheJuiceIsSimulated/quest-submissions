@@ -84,7 +84,7 @@ pub contract Stuff {
 }
 ```
 
-THE FIXED CODE
+THE OLD ANSWER
 ```Cadence
 pub contract Stuff {
 
@@ -120,3 +120,39 @@ pub contract Stuff {
 I'm still getting the first error message, I thought I fixed it, but now I don't know what to do.
 
 ![image](https://user-images.githubusercontent.com/104703860/172021199-1bd0bb2e-ce4d-48a0-98de-dccdb388c21a.png)
+
+
+THE NEW ANSWER
+```cadence
+pub contract Stuff {
+
+    pub struct interface ITest {
+      pub var greeting: String
+      pub var favouriteFruit: String
+      pub fun changeGreeting(newGreeting: String): String 
+    }
+    
+    // ERROR:
+    // `structure Stuff.Test does not conform 
+    // to structure interface Stuff.ITest`
+    pub struct Test: ITest {
+      pub var greeting: String
+      pub var favouriteFruit: String
+      init() {
+        self.greeting = "Hello!"
+        self.favouriteFruit = "Cherry"
+      }
+
+      pub fun changeGreeting(newGreeting: String): String {
+        self.greeting = newGreeting
+        return self.greeting // returns the new greeting
+      }
+    }
+
+    pub fun fixThis() {
+      let test: Test{ITest} = Test()
+      let newGreeting = test.changeGreeting(newGreeting: "Bonjour!")
+      log(newGreeting)
+    }
+}
+```
