@@ -113,7 +113,7 @@ numberOne: Yes, the function will log the name "Jacob" (I didn't know what == me
 
 numberTwo: Yes, the function will return a value.
 
-numberThree: No, the function won't run because the pre-condition of 5 isn't met
+numberThree: No, the function won't run because the pre-condition of 5 isn't met.
 
 
 _THE OLD ANSWER_: 
