@@ -124,7 +124,7 @@ Write Scope: None of the variables are in the write scope of Area 4 because no d
 
 publicFunc can be called here
 
-
+.
 THE OLD ANSWER:
 
 AREA 1
