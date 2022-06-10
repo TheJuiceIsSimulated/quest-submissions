@@ -95,11 +95,11 @@ transaction() {
 
   **ii.A transaction that first saves the resource to account storage, then borrows a reference to it, and logs a field inside the resource.**
   
-_THE NEW TRANSACTION_:
+_THE NEW TRANSACTION ANSWER_:
 ![image](https://user-images.githubusercontent.com/104703860/172977781-eb32a0a2-b8ca-446a-b2c0-c3856d470fdb.png)
   
   
-_THE OLD TRANSACTION_:
+_THE OLD TRANSACTION ANSWER_:
 ![image](https://user-images.githubusercontent.com/104703860/172037311-f0255df0-c249-4bcb-b674-a28c8519d054.png)
   
   ```cadence
