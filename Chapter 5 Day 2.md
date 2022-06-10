@@ -66,6 +66,7 @@ pub contract Test {
 ```
 
 _THE NEW ANSWER_:
+
 There are no mistakes in the contract interface.
 
 The implementing contract:
