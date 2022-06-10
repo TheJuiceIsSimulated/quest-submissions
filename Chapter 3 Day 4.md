@@ -8,6 +8,8 @@ Two things resource interfaces can be used for are
 
 **2. Define your own contract. Make your own resource interface and a resource that implements the interface. Create 2 functions. In the 1st function, show an example of not restricting the type of the resource and accessing its content. In the 2nd function, show an example of restricting the type of the resource and NOT being able to access its content.**
 
+THE OLD ANSWER:
+
 ```cadence
 pub contract IAmGoodLooking {
 
@@ -49,6 +51,49 @@ pub contract IAmGoodLooking {
     }
 }
 ```
+
+THE NEW ANSWER:
+```cadence
+pub contract IAmGoodLooking {
+
+    pub resource interface IBreakHearts {
+        pub var phraseOne: String
+        pub var phraseTwo: String
+        pub fun updatePhraseTwo(newPhraseTwo: String): String
+    }
+    
+    pub resource BreakHearts: IBreakHearts {
+        pub var phraseOne: String
+        pub var phraseTwo: String
+        
+        pub fun updatePhraseTwo(newPhraseTwo: String): String {
+            self.phraseTwo = newPhraseTwo
+            return self.phraseTwo
+        }
+        
+        init () {
+            self.phraseOne = "If you look good,"
+            self.phraseTwo = "you feel good."
+        }
+    }
+    
+    pub fun notTopSecret() {
+        let breakHearts: @BreakHearts <- create BreakHearts()
+        breakHearts.updatePhraseTwo(newPhraseTwo: "the mirror won't crack.")
+        log(breakHearts.phraseTwo)
+        
+        destroy breakHearts
+    }
+    
+    pub fun topSecret() {
+        let breakHearts: @BreakHearts{IBreakHearts} <- create BreakHearts()
+        log(breakHearts.phraseTwo)
+        
+        destroy breakHearts
+    }
+}
+```
+
 
 **3. How would we fix this code?**
 
