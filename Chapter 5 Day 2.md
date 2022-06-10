@@ -65,9 +65,40 @@ pub contract Test {
 }
 ```
 
+_THE NEW ANSWER_:
+There are no mistakes in the contract interface.
 
-THE FIXED CONTRACT:
+The implementing contract:
 
+```CADENCE
+pub contract Test {
+  pub var number: Int
+  
+  pub fun updateNumber(newNumber: Int) {
+    newNumber = 5 //Mistake #1 was here
+  }
+
+  pub resource interface IStuff {
+    pub var favouriteActivity: String
+  }
+
+  pub resource Stuff: ITest.IStuff { //Mistake #2 was here
+    pub var favouriteActivity: String
+
+    init() {
+      self.favouriteActivity = "Playing League of Legends."
+    }
+  }
+
+  init() {
+    self.number = 0
+  }
+}
+```
+
+_THE OLD ANSWER_:
+
+The contract interface:
 ```CADENCE
 pub contract interface ITest {
   pub var number: Int
@@ -118,4 +149,3 @@ pub contract Test  {
   }
 }
 ```
-
