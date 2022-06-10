@@ -87,7 +87,7 @@ pub fun main() {
 }
 ```
 
-THE NEW ANSWER:
+_THE NEW ANSWER:_
 
 AREA 1
 
@@ -124,8 +124,8 @@ Write Scope: None of the variables are in the write scope of Area 4 because no d
 
 publicFunc can be called here
 
-.
-THE OLD ANSWER:
+
+_THE OLD ANSWER:_
 
 AREA 1
 
