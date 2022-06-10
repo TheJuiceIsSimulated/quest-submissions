@@ -289,7 +289,9 @@ A resource CANNOT be created in a script or transaction because they can only be
 
 **5. What is the type of the resource below?**
 
-This is a `string` type resource. 
+_NEW ANSWER_: @Jacob, which is the declared name of the resource Jacob.
+
+_OLD ANSWER_: This is a `string` type resource. 
 
 ```Cadence
 
@@ -335,7 +337,7 @@ THE FIXED CODE:
     }
 
     pub fun createJacob(): @Jacob { 
-        let myJacob <- create Jacob()
+        let myJacob <- create Jacob() 
         return <- myJacob 
     }
 }
@@ -461,6 +463,50 @@ Two things resource interfaces can be used for are
 
 **2. Define your own contract. Make your own resource interface and a resource that implements the interface. Create 2 functions. In the 1st function, show an example of not restricting the type of the resource and accessing its content. In the 2nd function, show an example of restricting the type of the resource and NOT being able to access its content.**
 
+_THE NEW ANSWER_:
+```cadence
+pub contract IAmGoodLooking {
+
+    pub resource interface IBreakHearts {
+        pub var phraseOne: String
+        pub var phraseTwo: String
+        pub fun updatePhraseTwo(newPhraseTwo: String): String
+    }
+    
+    pub resource BreakHearts: IBreakHearts {
+        pub var phraseOne: String
+        pub var phraseTwo: String
+        
+        pub fun updatePhraseTwo(newPhraseTwo: String): String {
+            self.phraseTwo = newPhraseTwo
+            return self.phraseTwo
+        }
+        
+        init () {
+            self.phraseOne = "If you look good,"
+            self.phraseTwo = "you feel good."
+        }
+    }
+    
+    pub fun notTopSecret() {
+        let breakHearts: @BreakHearts <- create BreakHearts()
+        breakHearts.updatePhraseTwo(newPhraseTwo: "the mirror won't crack.")
+        log(breakHearts.phraseTwo)
+        
+        destroy breakHearts
+    }
+    
+    pub fun topSecret() {
+        let breakHearts: @BreakHearts{IBreakHearts} <- create BreakHearts()
+        log(breakHearts.phraseTwo)
+        
+        destroy breakHearts
+    }
+}
+```
+
+_THE OLD ANSWER_:
+
 ```cadence
 pub contract IAmGoodLooking {
 
@@ -503,6 +549,7 @@ pub contract IAmGoodLooking {
 }
 ```
 
+
 **3. How would we fix this code?**
 
 ```Cadence
@@ -537,7 +584,43 @@ pub contract Stuff {
 }
 ```
 
-THE FIXED CODE
+_THE NEW ANSWER_:
+```cadence
+pub contract Stuff {
+
+    pub struct interface ITest {
+      pub var greeting: String
+      pub var favouriteFruit: String
+      pub fun changeGreeting(newGreeting: String): String 
+    }
+    
+    // ERROR:
+    // `structure Stuff.Test does not conform 
+    // to structure interface Stuff.ITest`
+    pub struct Test: ITest {
+      pub var greeting: String
+      pub var favouriteFruit: String
+      init() {
+        self.greeting = "Hello!"
+        self.favouriteFruit = "Cherry"
+      }
+
+      pub fun changeGreeting(newGreeting: String): String {
+        self.greeting = newGreeting
+        return self.greeting // returns the new greeting
+      }
+    }
+
+    pub fun fixThis() {
+      let test: Test{ITest} = Test()
+      let newGreeting = test.changeGreeting(newGreeting: "Bonjour!")
+      log(newGreeting)
+    }
+}
+```
+
+
+_THE OLD ANSWER_:
 ```Cadence
 pub contract Stuff {
 
@@ -665,6 +748,46 @@ pub fun main() {
   /**************/
 }
 ```
+
+_THE NEW ANSWER:_
+
+AREA 1
+
+Read Scope: a, b, c, d
+
+Write Scope: a, b, c, d
+
+publicFunc, contractFunc, privateFunc can be called here
+
+
+AREA 2:
+
+Read Scope: a, b, c
+
+Write Scope: a
+
+publicFunc, contractFunc can be called here
+
+
+AREA 3:
+
+Read Scope: a, b, c
+
+Write Scope: a
+
+publicFunc, contractFunc can be called here
+
+
+AREA 4:
+
+Read Scope: a, b
+
+Write Scope: None of the variables are in the write scope of Area 4 because no data that's already on the blockchain can be changed inside a script.
+
+publicFunc can be called here
+
+
+_THE OLD ANSWER:_
 
 AREA 1
 
@@ -801,7 +924,12 @@ transaction() {
 
   **ii.A transaction that first saves the resource to account storage, then borrows a reference to it, and logs a field inside the resource.**
   
-  ![image](https://user-images.githubusercontent.com/104703860/172037311-f0255df0-c249-4bcb-b674-a28c8519d054.png)
+_THE NEW TRANSACTION ANSWER_:
+![image](https://user-images.githubusercontent.com/104703860/172977781-eb32a0a2-b8ca-446a-b2c0-c3856d470fdb.png)
+  
+  
+_THE OLD TRANSACTION ANSWER_:
+![image](https://user-images.githubusercontent.com/104703860/172037311-f0255df0-c249-4bcb-b674-a28c8519d054.png)
   
   ```cadence
 import SportsCars from 0x01
@@ -1168,11 +1296,21 @@ pub contract Test {
 }
 ```
 
+_THE NEW ANSWER_:
+numberOne: Yes, the function will log the name "Jacob" (I didn't know what == meant before, so that's why I got confused.)
+
+numberTwo: Yes, the function will return a value.
+
+numberThree: No, the function won't run because the pre-condition of 5 isn't met.
+
+
+_THE OLD ANSWER_: 
+
 numberOne: No, the function will not log the name "Jacob"
 
 numberTwo: Yes, the function will return a value.
 
-numberThree: Yes, the function will log the updates number. After it's run, the value of `self.number` will be 2.
+numberThree: Yes, the function will log the updated number. After it's run, the value of `self.number` will be 2.
 
 
 
@@ -1245,9 +1383,40 @@ pub contract Test {
 }
 ```
 
+_THE NEW ANSWER_:
+There are no mistakes in the contract interface.
 
-THE FIXED CONTRACT:
+The implementing contract:
 
+```CADENCE
+pub contract Test {
+  pub var number: Int
+  
+  pub fun updateNumber(newNumber: Int) {
+    newNumber = 5 //Mistake #1 was here
+  }
+
+  pub resource interface IStuff {
+    pub var favouriteActivity: String
+  }
+
+  pub resource Stuff: ITest.IStuff { //Mistake #2 was here
+    pub var favouriteActivity: String
+
+    init() {
+      self.favouriteActivity = "Playing League of Legends."
+    }
+  }
+
+  init() {
+    self.number = 0
+  }
+}
+```
+
+_THE OLD ANSWER_:
+
+The contract interface:
 ```CADENCE
 pub contract interface ITest {
   pub var number: Int
