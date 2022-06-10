@@ -108,9 +108,18 @@ pub contract Test {
 
 }
 ```
+_THE NEW ANSWER_:
+numberOne: Yes, the function will log the name "Jacob" (I didn't know what == meant before, so that's why I got confused.)
+
+numberTwo: Yes, the function will return a value.
+
+numberThree: No, the function won't run because the pre-condition of 5 isn't met
+
+
+_THE OLD ANSWER_: 
 
 numberOne: No, the function will not log the name "Jacob"
 
 numberTwo: Yes, the function will return a value.
 
-numberThree: Yes, the function will log the updates number. After it's run, the value of `self.number` will be 2.
+numberThree: Yes, the function will log the updated number. After it's run, the value of `self.number` will be 2.
