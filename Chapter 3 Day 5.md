@@ -87,6 +87,46 @@ pub fun main() {
 }
 ```
 
+THE NEW ANSWER:
+
+AREA 1
+
+Read Scope: a, b, c, d
+
+Write Scope: a, b, c, d
+
+publicFunc, contractFunc, privateFunc can be called here
+
+
+AREA 2:
+
+Read Scope: a, b, c
+
+Write Scope: a
+
+publicFunc, contractFunc can be called here
+
+
+AREA 3:
+
+Read Scope: a, b, c
+
+Write Scope: a
+
+publicFunc, contractFunc can be called here
+
+
+AREA 4:
+
+Read Scope: a, b
+
+Write Scope: None of the variables are in the write scope of Area 4 because no data that's already on the blockchain can be changed inside a script.
+
+publicFunc can be called here
+
+
+THE OLD ANSWER:
+
 AREA 1
 
 Read Scope: a, b, c, d
