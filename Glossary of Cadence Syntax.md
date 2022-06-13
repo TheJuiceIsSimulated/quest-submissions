@@ -32,7 +32,7 @@ pub fun main (): [return type] {
 
 ```
 
-**Format of declaring a variable** - `[access modifier] [var/let] [variable name]: [Type}`
+**Format of declaring a variable** - `[access modifier] [var/let] [variable name]: [Type]`
 
 **Format of writing a function** - `[access modifier] fun [function name](parameter1: Type, parameter2: Type,...): [return Type] {...}`
 
