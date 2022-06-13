@@ -1,3 +1,5 @@
+Started 06/08/2022
+
 # Formats
   
 **Format of an empty contract** - 
