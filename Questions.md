@@ -2,22 +2,22 @@
 
 ## ASKED:
 
-**What does calling a function mean?**
+**In Chapter 1 Day 1, what does calling a function mean?**
 ![image](https://user-images.githubusercontent.com/104703860/173458030-7ac78318-efc4-405f-8e8b-d6eb7d0ab4e1.png)
 
-**What's the difference between `log` and `return`?**
+**What's the difference between `log` and `return`? (Chapter 1.5)**
 ![image](https://user-images.githubusercontent.com/104703860/173458118-8aca0945-d07b-41cc-9e9a-b82cb9ba20ea.png)
 
 Can `log` and `return` be used somewhat interchangeably in a script?
 
 
-1. What does defining a function ourselves mean? 
+1. What does defining a function ourselves mean? (Chapter 1.5)
 
-2. What is the template to call a function? 
+2. What is the template to call a function? (Chapter 1.5)
 
-3. What does `.concat` mean? 
+3. What does `.concat` mean? (Chapter 1.5)
 
-4. What do the curly brackets `{ }` mean? 
+4. What do the curly brackets `{ }` mean? (Chapter 2 Day 1)
 
 5. Why do functions have to be returned? 
 
